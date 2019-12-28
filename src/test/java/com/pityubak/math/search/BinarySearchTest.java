@@ -7,7 +7,6 @@ package com.pityubak.math.search;
 
 import com.pityubak.math.sort.QuickSort;
 import com.pityubak.math.sort.Sort;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -23,30 +23,41 @@
  */
 package com.pityubak.math.numbertheory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Pityubak
  */
-public final class Prime {
+public final class SieveOfErastosthenes {
 
-    private final int p;
+    private final int n;
 
-    public Prime(int p) {
-        this.p = p;
+    public SieveOfErastosthenes(final int n) {
+        this.n = n;
     }
 
-    public boolean isPrime() {
-        int n = Math.abs(this.p);
-        if (n % 2 == 0 || n == 1) {
-            return false;
+    public List<Integer> sieveOfErastosthenes() {
+        List<Integer> listOfPrimes = new ArrayList<>();
+        boolean[] prime = new boolean[this.n];
+        for (int i = 0; i < prime.length; i++) {
+            prime[i] = true;
         }
-        int index = (int) Math.sqrt(n) + 1;
-        for (int i = 3; i < index; i += 2) {
-            if (n % i == 0) {
-                return false;
+
+        for (int i = 2; i * i < this.n; i++) {
+            if (prime[i]) {
+                for (int j = 2 * i; j <= this.n; j += i) {
+                    prime[j] = false;
+                }
+            }
+
+        }
+        for (int i = 2; i < prime.length; i++) {
+            if (prime[i]) {
+                listOfPrimes.add(i);
             }
         }
-        return true;
+        return listOfPrimes;
     }
-
 }

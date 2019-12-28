@@ -5,7 +5,6 @@
  */
 package com.pityubak.math.numbertheory;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

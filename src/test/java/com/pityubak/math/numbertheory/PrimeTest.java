@@ -23,30 +23,29 @@
  */
 package com.pityubak.math.numbertheory;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+
 /**
  *
  * @author Pityubak
  */
-public final class Prime {
+public class PrimeTest {
 
-    private final int p;
-
-    public Prime(int p) {
-        this.p = p;
+    public PrimeTest() {
     }
 
-    public boolean isPrime() {
-        int n = Math.abs(this.p);
-        if (n % 2 == 0 || n == 1) {
-            return false;
-        }
-        int index = (int) Math.sqrt(n) + 1;
-        for (int i = 3; i < index; i += 2) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    @Test
+    public void testIsPrime() {
+        Prime instance = new Prime(11);
+        assertEquals(true, instance.isPrime());
+
     }
 
+    @Test
+    public void testIsNotPrime() {
+        Prime instance = new Prime(1100);
+        assertEquals(false, instance.isPrime());
+    }
 }
